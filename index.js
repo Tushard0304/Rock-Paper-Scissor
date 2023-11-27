@@ -1,5 +1,3 @@
-// localStorage.setItem('userscored',userScore)
-// document.getElementById('your-score').innerHTML = localStorage.getItem('userscored')
 // making choices
 const choices = ['rock', 'paper', 'scissor'];
 
