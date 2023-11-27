@@ -65,6 +65,7 @@ rock.addEventListener("click", function () {
         //   userrock.classList.add("rounded-gradient-borders");
         //   win();
         document.getElementById('wonPage').style.display = 'flex';
+        document.getElementById('next').style.display = 'flex';
         userScore++;
         changeUserScore(userScore);
     }
@@ -94,6 +95,7 @@ paper.addEventListener("click", function () {
         // userpaper.classList.add("rounded-gradient-borders");
         // pcrock.classList.remove("hidden");
         document.getElementById('wonPage').style.display = 'flex';
+        document.getElementById('next').style.display = 'flex';
         userScore++;
         changeUserScore(userScore);
     }
@@ -120,6 +122,7 @@ scissor.addEventListener("click", function () {
     } else {
         // win();
         document.getElementById('wonPage').style.display = 'flex';
+        document.getElementById('next').style.display = 'flex';
         userScore++;
         changeUserScore(userScore);
         // pcpaper.classList.remove("hidden");
@@ -138,13 +141,14 @@ function ShowRules() {
 
 // code for next button 
 function nextSection() {
+    document.getElementById('wonPage').style.display = 'none';
     document.getElementById('playing-section').style.display = 'none';
     document.getElementById('next').style.display = 'none';
     document.getElementById('score-section').style.display = 'none';
     document.getElementById('hurray-section').style.display = 'flex'
 }
 
-//code for main page after clicking on next button of hurray page
+//code for main page after clicking on play again button of every page
 function showMainPage() {
     // Hide unnecessary sections
     document.getElementById('wonPage').style.display = 'none';
