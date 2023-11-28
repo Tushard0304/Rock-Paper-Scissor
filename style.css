@@ -70,8 +70,104 @@ span {
 }
 
 /* playing section css */
-
 .middle-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 18.75rem; /* 300px / 16px = 18.75rem */
+    margin-top: 3.125rem; /* 50px / 16px = 3.125rem */
+    width: 15rem; /* 240px / 16px = 15rem */
+    position: relative;
+}
+
+.line1 {
+    height: 0.625rem; /* 10px / 16px = 0.625rem */
+    background-color: #000000A3;
+    width: 13.75rem; /* 220px / 16px = 13.75rem */
+    transform: rotate(0deg);
+    transform-origin: left;
+    position: absolute;
+    top: 3.4375rem; /* 55px / 16px = 3.4375rem */
+}
+
+.line2 {
+    height: 0.625rem;
+    background-color: #000000A3;
+    width: 13.75rem;
+    transform: rotate(-60deg);
+    transform-origin: right;
+    position: absolute;
+    top: 3.1875rem; /* 51px / 16px = 3.1875rem */
+    left: 0rem; /* 160px / 16px = 10rem */
+}
+
+.line3 {
+    height: 0.625rem;
+    background-color: #000000A3;
+    width: 13.75rem;
+    transform: rotate(60deg);
+    transform-origin: left;
+    position: absolute;
+    top: 3.1875rem;
+    left: 0rem;
+}
+
+.upper-sec {
+    display: flex;
+    gap: 7.5rem; /* 120px / 16px = 7.5rem */
+}
+
+.blue {
+    background-color: blue;
+}
+
+.outer-circle {
+    height: 6.875rem; /* 110px / 16px = 6.875rem */
+    width: 6.875rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.outer-circle {
+    height: 6.875rem;
+    width: 6.875rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.inner-circle {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    align-items: center;
+    height: 5.3125rem; /* 85px / 16px = 5.3125rem */
+    width: 5.3125rem;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.lower-sec {
+    display: flex;
+    margin-top: 4.375rem; /* 70px / 16px = 4.375rem */
+}
+
+.orange {
+    background-color: orange;
+}
+
+
+/* .middle-1 {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -166,7 +262,7 @@ span {
 
 .orange {
     background-color: orange;
-}
+} */
 
 /* footer section */
 

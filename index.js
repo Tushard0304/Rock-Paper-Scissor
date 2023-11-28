@@ -111,6 +111,7 @@ function nextSection() {
 //code for main page after clicking on play again button of every page
 function showMainPage() {
     // Hide unnecessary sections
+    document.getElementById('next').style.display = 'none';
     document.getElementById('wonPage').style.display = 'none';
     document.getElementById('lostPage').style.display = 'none';
     document.getElementById('tiePage').style.display = 'none';
