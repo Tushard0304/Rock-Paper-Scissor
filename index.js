@@ -1,11 +1,8 @@
 // making choices
-const choices = ['rock', 'paper', 'scissor'];
-
-// making user choices 
-const userChoices = choices;
+const choices = ['rock', 'scissor', 'paper'];
 
 // making computer choices
-function computerChoices() {
+function pcs() {
     return choices[Math.floor(Math.random() * choices.length)]
 }
 
@@ -14,15 +11,43 @@ let rock = document.getElementById('rock');
 let paper = document.getElementById('paper');
 let scissor = document.getElementById('scissor');
 
-// storing scores for the pc and user
+// storing scores for the user
 
 let userScore = 0;
+
+// Function to change user score and update local storage
+
 function changeUserScore(uscore) {
     document.getElementById("your-score").innerHTML = uscore;
+    localStorage.setItem("userScore", userScore);
+
 }
+
+// storing scores for the pc 
+
 let pcScore = 0;
+
+// // Function to change computer score and update local storage
+
 function changePcScore(pscore) {
     document.getElementById("comp-score").innerHTML = pscore;
+    localStorage.setItem("pcScore", pcScore);
+
+}
+
+// Check local storage for existing scores and update
+
+let storedUserScore = localStorage.getItem("userScore");
+let storedPcScore = localStorage.getItem("pcScore");
+
+if (storedUserScore !== null) {
+    userScore = parseInt(storedUserScore);
+    changeUserScore(userScore);
+}
+
+if (storedPcScore !== null) {
+    pcScore = parseInt(storedPcScore);
+    changePcScore(pcScore);
 }
 
 // things which will be initially hidden 
@@ -36,13 +61,13 @@ document.querySelector('.middle-2').style.display = 'none';
 
 rock.addEventListener("click", function () {
     const userChoices = 'rock'
-    const computerChoice = computerChoices();
+    const pc = pcs();
     document.getElementById('playing-section').style.display = 'none';
     
-    if ((userChoices === computerChoice)) {
-        document.getElementById('tiePage').style.display = 'flex';
+    if ((userChoices === pc)) {
+        document.getElementById('tiePage').style.display = 'flex'; 
     } else if (
-        (userChoices === "rock" && computerChoice === "paper") ){
+        (userChoices === "rock" && pc === "paper") ){
         document.getElementById('lostPage').style.display = 'flex';
         pcScore++;
         changePcScore(pcScore);
@@ -55,14 +80,13 @@ rock.addEventListener("click", function () {
 });
 
 paper.addEventListener("click", function () {
-    console.log("clicked");
     const userChoices = 'paper'
-    const computerChoice = computerChoices();
+    const pc = pcs();
     document.getElementById('playing-section').style.display = 'none';
 
-    if ((userChoices === computerChoice)) {
-        document.getElementById('tiePage').style.display = 'flex';
-    } else if ((userChoices === "paper" && computerChoice === "scissor")) {
+    if ((userChoices === pc)) {
+        document.getElementById('tiePage').style.display = 'flex'; 
+    } else if ((userChoices === "paper" && pc === "scissor")) {
         document.getElementById('lostPage').style.display = 'flex';
         pcScore++;
         changePcScore(pcScore);
@@ -76,12 +100,12 @@ paper.addEventListener("click", function () {
 
 scissor.addEventListener("click", function () {
     const userChoices = 'scissor'
-    const computerChoice = computerChoices();
+    const pc = pcs();
     document.getElementById('playing-section').style.display = 'none';
 
-    if (userChoices === computerChoice) {
-        document.getElementById('tiePage').style.display = 'flex';
-    } else if ((userChoices === "scissor" && computerChoice === "rock")) {
+    if (userChoices === pc) {
+        document.getElementById('tiePage').style.display = 'flex'; 
+    } else if ((userChoices === "scissor" && pc === "rock")) {
         document.getElementById('lostPage').style.display = 'flex';
         pcScore++;
         changePcScore(pcScore);
