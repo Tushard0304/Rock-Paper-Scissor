@@ -3,8 +3,15 @@ const choices = ['rock', 'scissor', 'paper'];
 
 // making computer choices
 function pcs() {
-    return choices[Math.floor(Math.random() * choices.length)]
+    const choices = ['rock', 'scissor', 'paper'];
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    const pcChoice = choices[randomIndex];
+    const pcImage = `./icons/${pcChoice}.png`;
+
+    return { choice: pcChoice, image: pcImage };
 }
+
+
 
 // onClicking images 
 let rock = document.getElementById('rock');
@@ -61,18 +68,25 @@ document.querySelector('.middle-2').style.display = 'none';
 
 rock.addEventListener("click", function () {
     const userChoices = 'rock'
-    const pc = pcs();
+    const pcResult = pcs();
+    const computerChoice = pcResult.choice;
     document.getElementById('playing-section').style.display = 'none';
-    
-    if ((userChoices === pc)) {
-        document.getElementById('tiePage').style.display = 'flex'; 
+
+    if ((userChoices === computerChoice)) {
+        document.getElementById('tiePage').style.display = 'flex';
+        document.getElementById('userChoiceTie').src = `./icons/first.png`
+        document.getElementById('pcChoiceTie').src = `./icons/first.png`
     } else if (
-        (userChoices === "rock" && pc === "paper") ){
+        (userChoices === "rock" && computerChoice === "paper")) {
         document.getElementById('lostPage').style.display = 'flex';
+        document.getElementById('userChoiceLost').src = `./icons/first.png`
+        document.getElementById('pcChoiceLost').src = `./icons/third.png`
         pcScore++;
         changePcScore(pcScore);
     } else {
         document.getElementById('wonPage').style.display = 'flex';
+        document.getElementById('userChoiceWon').src = `./icons/first.png`
+        document.getElementById('pcChoiceWon').src = `./icons/second.png`
         document.getElementById('next').style.display = 'flex';
         userScore++;
         changeUserScore(userScore);
@@ -81,17 +95,25 @@ rock.addEventListener("click", function () {
 
 paper.addEventListener("click", function () {
     const userChoices = 'paper'
-    const pc = pcs();
+    const pcResult = pcs();
+    const computerChoice = pcResult.choice;
+
     document.getElementById('playing-section').style.display = 'none';
 
-    if ((userChoices === pc)) {
-        document.getElementById('tiePage').style.display = 'flex'; 
-    } else if ((userChoices === "paper" && pc === "scissor")) {
+    if ((userChoices === computerChoice)) {
+        document.getElementById('tiePage').style.display = 'flex';
+        document.getElementById('userChoiceTie').src = `./icons/third.png`
+        document.getElementById('pcChoiceTie').src = `./icons/third.png`
+    } else if ((userChoices === 'paper' && computerChoice === "scissor")) {
         document.getElementById('lostPage').style.display = 'flex';
+        document.getElementById('userChoiceLost').src = `./icons/third.png`
+        document.getElementById('pcChoiceLost').src = `./icons/second.png`
         pcScore++;
         changePcScore(pcScore);
     } else {
         document.getElementById('wonPage').style.display = 'flex';
+        document.getElementById('userChoiceWon').src = `./icons/third.png`
+        document.getElementById('pcChoiceWon').src = `./icons/first.png`
         document.getElementById('next').style.display = 'flex';
         userScore++;
         changeUserScore(userScore);
@@ -100,17 +122,24 @@ paper.addEventListener("click", function () {
 
 scissor.addEventListener("click", function () {
     const userChoices = 'scissor'
-    const pc = pcs();
+    const pcResult = pcs();
+    const computerChoice = pcResult.choice;
     document.getElementById('playing-section').style.display = 'none';
 
-    if (userChoices === pc) {
-        document.getElementById('tiePage').style.display = 'flex'; 
-    } else if ((userChoices === "scissor" && pc === "rock")) {
+    if (userChoices === computerChoice) {
+        document.getElementById('tiePage').style.display = 'flex';
+        document.getElementById('userChoiceTie').src = `./icons/second.png`
+        document.getElementById('pcChoiceTie').src = `./icons/second.png`
+    } else if ((userChoices === "scissor" && computerChoice === "rock")) {
         document.getElementById('lostPage').style.display = 'flex';
+        document.getElementById('userChoiceLost').src = `./icons/second.png`
+        document.getElementById('pcChoiceLost').src = `./icons/first.png`
         pcScore++;
         changePcScore(pcScore);
     } else {
         document.getElementById('wonPage').style.display = 'flex';
+        document.getElementById('userChoiceWon').src = `./icons/second.png`
+        document.getElementById('pcChoiceWon').src = `./icons/third.png`
         document.getElementById('next').style.display = 'flex';
         userScore++;
         changeUserScore(userScore);
